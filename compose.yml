@@ -1,0 +1,28 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    platform: linux/amd64
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Password1
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+      - ./backups:/var/opt/mssql/backup
+  sqlcmd:
+    profiles:
+      - tools
+    image: mcr.microsoft.com/mssql-tools
+    depends_on:
+      - sqlserver
+    platform: linux/amd64
+    volumes:
+     - ./scripts:/var/opt/sqlcmd/scripts
+     - ./backups:/var/opt/mssql/backup
+    environment:
+      - SQLCMDSERVER=sqlserver
+      - SQLCMDUSER=sa
+      - SQLCMDPASSWORD=Password1
+volumes:
+  sqlserver_data:

@@ -1,0 +1,30 @@
+# .gitignore for windblab project
+
+# Ignore backup files
+backups/*.bak
+
+# Ignore scripts output (if any temp files are created)
+scripts/*.log
+scripts/*.tmp
+
+# Ignore environment files
+.env
+
+# Ignore OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Ignore Python cache (if any Python scripts are added)
+__pycache__/
+*.pyc
+
+# Ignore node_modules (if any JS tooling is added)
+node_modules/
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore Podman/Docker volumes (if mapped locally)
+volumes/
