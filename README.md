@@ -31,6 +31,13 @@ A containerized Microsoft SQL Server environment with automated restore tooling 
 2. Run `just rebuild` to bring up the environment and trigger the import/inspection script. 
 3. The script will discard the current database by dropping the persistent volume inspect each backup, generate restore SQL, and attempt to restore databases automatically.
 
+### Sql Script Workflow
+
+1. Place your sql scripts in scripts/sql/DbName
+2. Run `just runsqlfiles DbName`
+3. The script will run the sql files in the directory against the named DB
+
+
 ### File Structure
 
 - `Justfile` — Task automation recipes.

@@ -28,3 +28,7 @@ node_modules/
 
 # Ignore Podman/Docker volumes (if mapped locally)
 volumes/
+
+# Ignore SQL scripts and subdirectories in scripts/sql, but not .gitkeep
+scripts/sql/*
+!scripts/sql/.gitkeep
