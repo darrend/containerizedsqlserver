@@ -30,5 +30,5 @@ node_modules/
 volumes/
 
 # Ignore SQL scripts and subdirectories in scripts/sql, but not .gitkeep
-scripts/sql/*
 !scripts/sql/.gitkeep
+scripts/sql/*
