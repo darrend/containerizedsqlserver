@@ -39,6 +39,10 @@ rebuild:
     podman compose run --rm sqlcmd sh /var/opt/sqlcmd/scripts/importinspect.sh
     just check
 
+
+inspect:
+    podman compose run --rm sqlcmd sh /var/opt/sqlcmd/scripts/inspect.sh
+
 # run the sql files listed in the sqlcmd/scripts/sql/DBName directory
 runsqlfiles dbname:
     podman compose run --rm sqlcmd sh /var/opt/sqlcmd/scripts/runsqlfiles.sh {{dbname}}
