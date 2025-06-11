@@ -37,6 +37,9 @@ rebuild:
     podman compose up -d
     sleep 10
     podman compose run --rm sqlcmd sh /var/opt/sqlcmd/scripts/importinspect.sh
+    sleep 2
+    just runsqlfiles
+    sleep 2
     just check
 
 
@@ -44,7 +47,7 @@ inspect:
     podman compose run --rm sqlcmd sh /var/opt/sqlcmd/scripts/inspect.sh
 
 # run the sql files listed in the sqlcmd/scripts/sql/DBName directory
-runsqlfiles dbname:
+runsqlfiles dbname="_all_":
     podman compose run --rm sqlcmd sh /var/opt/sqlcmd/scripts/runsqlfiles.sh {{dbname}}
 
 # drop into a sqlcmd shell for the specified database
